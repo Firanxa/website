@@ -1,0 +1,62 @@
+---
+const links = [
+    {url: "/", name: "Home"}
+]
+---
+
+<header>
+    <div class="nav-bar">
+        <div class="profile-header">
+            <img src="/favicon.png" alt="profile picture" class="profile-picture">
+            <span class="profile-text"><mark>Firanxa</mark></span>
+        </div>
+        <nav>
+            <ul>
+                {links.map((link: any) => <li><a href={link.url}>{link.name}</a></li>)}
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<style>
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        gap: 1rem;
+        list-style-type: none;
+    }
+    nav a {
+        color: var(--color-text-alt);
+        text-decoration: none;
+    }
+    nav a:hover {
+        background-color: var(--color-highlight);
+        color: var(--color-text);
+    }
+
+    .nav-bar {
+        display: flex;
+        flex-direction: row;
+        place-content: space-between;
+        padding: 1rem 0;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--color-text-alt);
+    }
+
+    .profile-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+    .profile-picture {
+        height: 3rem;
+        width: 3rem;
+    }
+    .profile-text {
+        font-size: x-large;
+        font-style: italic;
+        font-weight: 700;
+    }
+</style>

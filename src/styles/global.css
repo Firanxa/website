@@ -1,0 +1,61 @@
+:root {
+    /* Fonts */
+    --sans-font: Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Colors */
+    --color-bg: #ffffff ;
+    --color-text: #0b1215;
+    --color-text-alt: #585f62;
+    --color-accent-dark: #005a92;
+    --color-accent-light: #0097fa;
+    --color-highlight: #ffcc00;
+}
+
+html {
+    font-family: var(--sans-font);
+    line-height: 1.7;
+}
+
+body {
+    max-width: 40rem;
+    margin: auto;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+main {
+    display: block;
+}
+
+/* Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+/* Text */
+mark {
+    background-color: var(--color-highlight);
+}
+
+small,
+sub,
+sup {
+    font-size: 80%;
+}
+
+/* Hyperlinks */
+a {
+    text-decoration: underline;
+    background-color: transparent;
+    color: var(--color-accent-dark);
+}
+a:hover {
+    text-decoration: none;
+    background-color: var(--color-accent-dark);
+    color: var(--color-bg);
+}
