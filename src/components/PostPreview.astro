@@ -1,0 +1,26 @@
+---
+import { formatDate } from "@utils/posts";
+const { url, title, description, date } = Astro.props;
+---
+
+<div class="post-preview">
+    <span><a href={url}>{title}</a></span>
+    <span class="preview-description">{description}</span>
+    <span class="preview-date">{formatDate(date)}</span>
+</div>
+
+<style>
+    .post-preview {
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .preview-description {
+        font-size: small;
+    }
+    .preview-date {
+        font-size: small;
+        text-transform: uppercase;
+        color: var(--color-text-alt)
+    }
+</style>

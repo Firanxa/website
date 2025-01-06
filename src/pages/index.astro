@@ -1,24 +1,41 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import "@styles/global.css"
+import PostPreview from "@components/PostPreview.astro";
 
 const pageTitle = "Ahoy-hoy!"
+const featuredPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }))
+	.filter((post: any) => post.frontmatter.featured)
+	.sort((a: any, b: any) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate));
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<h1>{pageTitle}</h1>
-	<p>
-		I'm an economist and data scientist who lives in Toronto.
-	</p>
-	<p>
-		My technical interests, broadly speaking, are in econometrics and computational modeling.
-		I primarily use Python and am currently learning Julia.
-	</p>
-	<p>
-		Besides programming, I enjoy cooking and learning new languages.
-		I can speak Spanish, French, and Indonesian.
-	</p>
-	<p>
-		You can see some of my work on <a href="https://github.com/Firanxa">GitHub</a>.
-	</p>
+	<section id="about-me">
+		<p>
+			I'm an economist and data scientist who lives in Toronto.
+		</p>
+		<p>
+			My technical interests, broadly speaking, are in econometrics and computational modeling.
+			I primarily use Python and am currently learning Julia.
+		</p>
+		<p>
+			Besides programming, I enjoy cooking and learning new languages.
+			I can speak Spanish, French, and Indonesian.
+		</p>
+		<p>
+			You can see some of my work on <a href="https://github.com/Firanxa">GitHub</a>.
+		</p>
+	</section>
+
+	<section id="featured-posts">
+		<h2>Featured posts</h2>
+		{featuredPosts.map((post: any) =>
+			<PostPreview 
+				url={post.url}
+				title={post.frontmatter.title}
+				description={post.frontmatter.description}
+				date={post.frontmatter.pubDate}
+			/>
+		)}
+	</section>
 </BaseLayout>

@@ -1,0 +1,52 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import "@styles/global.css";
+
+import { formatDate } from "@utils/posts";
+const { frontmatter } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{frontmatter.title} | Firanxa</title>
+	</head>
+    <body>
+        <Header />
+        <main>
+            <h1>{frontmatter.title}</h1>
+            <section>
+                <p class="post-description">{frontmatter.description}</p>
+                <span class="post-date">{formatDate(frontmatter.pubDate)}</span>
+            </section>
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex-grow: 1;
+    }
+
+    .post-description {
+        font-style: italic;
+    }
+    .post-date {
+        font-size: small;
+        text-transform: uppercase;
+        color: var(--color-text-alt)
+    }
+</style>

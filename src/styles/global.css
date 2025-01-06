@@ -2,7 +2,7 @@
     /* Fonts */
     --sans-font: Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
     /* Colors */
-    --color-bg: #ffffff ;
+    --color-bg: #ffffff;
     --color-text: #0b1215;
     --color-text-alt: #585f62;
     --color-accent-dark: #005a92;
@@ -24,6 +24,10 @@ body {
 
 main {
     display: block;
+}
+
+section {
+    margin-bottom: 3rem;
 }
 
 /* Headers */
